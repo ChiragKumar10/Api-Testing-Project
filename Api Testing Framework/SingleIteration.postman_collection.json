@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "aa4ec608-2912-4700-9b8c-6628540585c5",
+		"name": "SingleIteration",
+		"description": "This collection is for handling all scenarios in single iteration.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26848626"
+	},
+	"item": [
+		{
+			"name": "Feature1:Login",
+			"item": [
+				{
+					"name": "Login-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.execution.skipRequest()"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"username\" : \"tushar.bhadane+frontdesk@thinkitive.com\",\r\n    \"password\" : \"Bluesky@123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://qa-api.blueskytelepsychiatry.com/api/master/login",
+							"protocol": "https",
+							"host": [
+								"qa-api",
+								"blueskytelepsychiatry",
+								"com"
+							],
+							"path": [
+								"api",
+								"master",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Feature2:Patient",
+			"item": [
+				{
+					"name": "xyz-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://qa-api.blueskytelepsychiatry.com/api/master/login",
+							"protocol": "https",
+							"host": [
+								"qa-api",
+								"blueskytelepsychiatry",
+								"com"
+							],
+							"path": [
+								"api",
+								"master",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PQR-POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{{req_body}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://qa-api.blueskytelepsychiatry.com/api/master/login",
+							"protocol": "https",
+							"host": [
+								"qa-api",
+								"blueskytelepsychiatry",
+								"com"
+							],
+							"path": [
+								"api",
+								"master",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"\r",
+					"let count = parseInt(pm.collectionVariables.get(\"count\"))\r",
+					"let runcount = parseInt(pm.collectionVariables.get(\"runcount\"))\r",
+					"\r",
+					"if (count == 0){\r",
+					"\r",
+					"    console.clear()\r",
+					"/******************* Scenario Data ************************ */\r",
+					"\r",
+					"let scenariodata = [];\r",
+					"\r",
+					"scenariodata = [[\"Flag\",\"Feature Name\",\"RequestName\",\"Test Scenario Summary\",\"ExpectedStatuscode\",\"RequestBody\",\"value1\",\"value2\",\"value3\",\"value4\",\"value5\",\"value6\",\"value7\",\"value8\",\"value9\",\"value10\"],[\"DonotRun\",\"Login\",\"Login-POST\",\"To validate when user enters both valid credentials username and password.\",200,\"{   \\\"username\\\":\\\"tushar.bhadane+frontdesk@thinkitive.com\\\",   \\\"password\\\":\\\"Bluesky@123\\\"   }\",\"access_token\",\"date\",\"code\",\"message\",\"ENTITY\",\"expires_in\",\"\",\"Bearer\",60000,\"refresh_token\"],[\"Run\",\"Login\",\"xyz-POST\",\"To validate when user enters both valid credentials username and password.\",200,\"{   \\\"username\\\":\\\"tushar.bhadane+frontdesk@thinkitive.com\\\",   \\\"password\\\":\\\"Bluesky@123\\\"   }\",\"access_token\",\"date\",\"code\",\"message\",\"ENTITY\",\"expires_in\",\"token_type\",\"Bearer\",\"\",\"refresh_token\"],[\"Run\",\"Login\",\"PQR-POST\",\"To validate when user enters both valid credentials username and password.\",200,\"{   \\\"username\\\":\\\"tushar.bhadane+frontdesk@thinkitive.com\\\",   \\\"password\\\":\\\"Bluesky@123\\\"   }\",\"\",\"date\",\"code\",\"\",\"ENTITY\",\"expires_in\",\"token_type\",\"Bearer\",60000,\"\"]]\r",
+					"\r",
+					"const executionarray = [];\r",
+					"const req_bodyarray = [];\r",
+					"const valuesinresponse = [];\r",
+					"\r",
+					"// loop the outer array\r",
+					"for (let i = 1; i < scenariodata.length; i++) {\r",
+					"\r",
+					"    if(scenariodata[i][0] === \"Run\"){\r",
+					"\r",
+					"        executionarray.push(scenariodata[i][2])\r",
+					"\r",
+					"        var req_body = scenariodata[i][5]\r",
+					"        req_body = req_body.replace(/\\s/g, \"\");        \r",
+					"        req_bodyarray.push(req_body)\r",
+					"\r",
+					"        valuesinresponse.push(scenariodata[i][3])\r",
+					"        valuesinresponse.push(scenariodata[i][4])\r",
+					"        valuesinresponse.push(scenariodata[i][6])\r",
+					"        valuesinresponse.push(scenariodata[i][7])\r",
+					"        valuesinresponse.push(scenariodata[i][8])\r",
+					"        valuesinresponse.push(scenariodata[i][9])\r",
+					"        valuesinresponse.push(scenariodata[i][10])\r",
+					"        valuesinresponse.push(scenariodata[i][11])\r",
+					"        valuesinresponse.push(scenariodata[i][12])\r",
+					"        valuesinresponse.push(scenariodata[i][13])\r",
+					"        valuesinresponse.push(scenariodata[i][14])\r",
+					"    }\r",
+					"}\r",
+					"//console.log(valuesinresponse)\r",
+					"//console.log(executionarray)\r",
+					"pm.collectionVariables.set(\"executionarray\", executionarray)\r",
+					"pm.collectionVariables.set(\"req_bodyarray\", req_bodyarray)\r",
+					"pm.collectionVariables.set(\"valuesinresponse\", valuesinresponse)\r",
+					"\r",
+					"/******************* Scenario Data ************************ */\r",
+					"\r",
+					"runcount = executionarray.length\r",
+					"pm.collectionVariables.set(\"runcount\",runcount)\r",
+					"//console.log(runcount)\r",
+					"count = count + 1\r",
+					"pm.collectionVariables.set(\"count\",count)\r",
+					"\r",
+					"\r",
+					"}\r",
+					"\r",
+					"\r",
+					"//console.log(\"runcount is \" + runcount)\r",
+					"\r",
+					"\r",
+					"if(runcount === 0){\r",
+					"    console.log(\"inside last loop\")\r",
+					"\r",
+					"    count = 0\r",
+					"    pm.collectionVariables.set(\"count\",count)\r",
+					"\r",
+					"    pm.execution.setNextRequest('')\r",
+					"\r",
+					"} else{\r",
+					"    runcount = runcount - 1\r",
+					"    pm.collectionVariables.set(\"runcount\",runcount)\r",
+					"    const executionarray = pm.collectionVariables.get(\"executionarray\")\r",
+					"    var runrequestname = executionarray.shift();\r",
+					"    //console.log(\"runrequestname \" + runrequestname)    \r",
+					"    pm.collectionVariables.set(\"executionarray\", executionarray)\r",
+					"\r",
+					"    const req_bodyarray = pm.collectionVariables.get(\"req_bodyarray\")\r",
+					"    var req_body = req_bodyarray.shift();\r",
+					"    pm.collectionVariables.set(\"req_body\",req_body)\r",
+					"    pm.collectionVariables.set(\"req_bodyarray\",req_bodyarray)\r",
+					"\r",
+					"    pm.execution.setNextRequest(runrequestname)\r",
+					"\r",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const responsevaluearray = [];\r",
+					"\r",
+					"console.log(pm.info.requestName)\r",
+					"\r",
+					"if(pm.info.requestName !== \"Login-POST\"){\r",
+					"\r",
+					"const valuesinresponse = pm.collectionVariables.get(\"valuesinresponse\")\r",
+					"\r",
+					"\r",
+					"\r",
+					"var jsonData = pm.response.json();\r",
+					"\r",
+					"JsonArrayTraversal(jsonData);\r",
+					"\r",
+					"validatevalues(valuesinresponse, responsevaluearray)\r",
+					"\r",
+					"}\r",
+					"/******************************************************************* */\r",
+					"\r",
+					"function JsonArrayTraversal(object) {\r",
+					"\r",
+					"    for (let key in object) {\r",
+					"        if (typeof object[key] === 'object') {\r",
+					"            JsonArrayTraversal(object[key]);\r",
+					"\r",
+					"        } else {\r",
+					"            var responsevalue = object[key]\r",
+					"\r",
+					"            addvaluetoresponsearray(responsevalue)\r",
+					"        }\r",
+					"    }\r",
+					"    //console.log(responsevaluearray)\r",
+					"}\r",
+					"\r",
+					"/******************************************************************* */\r",
+					"\r",
+					"function addvaluetoresponsearray(responsevalue) {\r",
+					"    \r",
+					"    responsevaluearray.push(responsevalue);\r",
+					"\r",
+					"}\r",
+					"\r",
+					"/*************************************************************/\r",
+					"\r",
+					"function validatevalues(valuesinresponse, responsevaluearray) {\r",
+					"\r",
+					"    var TestScenarioSummary = valuesinresponse[0]\r",
+					"    var ExpectedStatuscode = valuesinresponse[1]\r",
+					"    console.log(\"ExpectedStatuscode \" + ExpectedStatuscode)                   \r",
+					"    var hasNumber = /\\d/;\r",
+					"\r",
+					"    pm.test(\"Verify expected statuscode in response\", function() {\r",
+					"\r",
+					"        pm.response.to.have.status(ExpectedStatuscode)\r",
+					"        \r",
+					"    });\r",
+					"\r",
+					"    \r",
+					"\r",
+					"    for (var i = 2; i < 11; i++) {\r",
+					"\r",
+					"       var requestvalue = valuesinresponse[i]\r",
+					"        \r",
+					"       if (requestvalue.length !== 0){ \r",
+					"\r",
+					"        if (hasNumber.test(requestvalue) === true) {\r",
+					"                    requestvalue = parseInt(requestvalue)\r",
+					"            }\r",
+					"\r",
+					"        pm.test(TestScenarioSummary, function() {                    \r",
+					"            //console.log(\"To Check \" + requestvalue + \" value in response\")\r",
+					"            pm.expect(pm.response.text()).to.include(requestvalue);\r",
+					"        });\r",
+					"       }             \r",
+					"\r",
+					"    }\r",
+					"    console.log(valuesinresponse)\r",
+					"    valuesinresponse.splice(0, 11);\r",
+					"    pm.collectionVariables.set(\"valuesinresponse\", valuesinresponse)\r",
+					"    console.log(valuesinresponse)   \r",
+					"\r",
+					"}"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "req_body",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "count",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "runcount",
+			"value": ""
+		},
+		{
+			"key": "executionarray",
+			"value": ""
+		},
+		{
+			"key": "req_bodyarray",
+			"value": ""
+		},
+		{
+			"key": "valuesinresponse",
+			"value": ""
+		}
+	]
+}
